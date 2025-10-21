@@ -2,7 +2,7 @@
   <mat-card class="weather-content">
     <mat-card-header class="weather-header">
       <mat-card-title
-        >Current Temperature: ° F</mat-card-title
+        >Current Temperature: {{temparatureSubject$.value}} °F</mat-card-title
       >
     </mat-card-header>
     <mat-divider></mat-divider>
@@ -26,5 +26,68 @@
         Set Temperature
       </button>
     </mat-card-actions>
+
+  
+    <div class="container">
+      <mat-card class="weather-content">
+        <mat-card-title class="weather-header"
+          ><span
+            >Current Temperature: {{ displayTemperatureText }}</span
+          ></mat-card-title
+        >
+        <button
+          *ngIf="!isCelsius"
+          mat-raised-button
+          color="primary"
+          (click)="convertToCelsius()"
+          class="temperature-button"
+        >
+          Convert To Celsius
+        </button>
+        <button
+          *ngIf="isCelsius"
+          mat-raised-button
+          color="primary"
+          (click)="convertToFahrenheit()"
+          class="temperature-button"
+        >
+          Convert To Fahrenheit
+        </button>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="temperature-button"
+          (click)="addSubscription()"
+        >
+          Add New Subscription
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          class="temperature-button"
+          (click)="removeSubscription()"
+        >
+          Remove Subscription
+        </button>
+
+      </mat-card>
+    </div>
   </mat-card>
+
+    <mat-card class="weather-content">
+    <mat-card-title class="weather-header">
+      <span *ngIf="!temperatureDataList.length">No Values Listed</span>
+      <span *ngIf="temperatureDataList.length"
+        >Replayed Subscription Values</span
+      >
+
+      <li *ngFor="let temp of temperatureDataList">{{ temp }} F</li>
+    </mat-card-title>
+  </mat-card>
+
 </div>
+
+<!-- Celsius To Fahrenheit  -->
+
+
