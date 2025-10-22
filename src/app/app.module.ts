@@ -8,6 +8,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     MatButtonModule,
     MatInputModule,
+    MatOptionModule,
     FormsModule,
     MatCardModule,
     MatDividerModule,
